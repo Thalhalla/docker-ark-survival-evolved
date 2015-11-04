@@ -18,7 +18,7 @@ USER root
 RUN echo 'new-session' >> ~/.tmux.conf
 
 # import custom ARK config
-ADD ./serverconfig_template.xml /home/steam/serverconfig_template.xml
+#ADD ./serverconfig_template.xml /home/steam/serverconfig_template.xml
 ADD ./run.sh /run.sh
 RUN chmod 755 /run.sh
 
