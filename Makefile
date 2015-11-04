@@ -26,7 +26,7 @@ rundocker:
 	-t thalhalla/docker-arkserver
 
 builddocker:
-	/usr/bin/time -v docker build -t thalhalla/7daystodie .
+	/usr/bin/time -v docker build -t thalhalla/docker-arkserver .
 
 beep:
 	@echo "beep"
