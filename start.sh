@@ -8,5 +8,5 @@ sed -i "s/steamuser=REPLACE_USER/steamuser='$STEAM_USERNAME'/" arkserver
 sed -i "s/steampass=REPLACE_PASSWORD/steampass='$STEAM_PASSWORD'/" arkserver
 set_steam_guard_code $STEAM_GUARD_CODE
 yes y|./arkserver install
-cp -v ./serverconfig_template.xml ./serverfiles/ark-server.xml
+#cp -v ./serverconfig_template.xml ./serverfiles/ark-server.xml
 bash /run.sh

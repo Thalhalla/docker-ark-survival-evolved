@@ -29,8 +29,7 @@ builddocker:
 	/usr/bin/time -v docker build -t thalhalla/docker-arkserver .
 
 beep:
-	@echo "beep"
-	@aplay /usr/share/sounds/alsa/Front_Center.wav
+	@echo "...done!"
 
 kill:
 	@docker kill `cat cid`

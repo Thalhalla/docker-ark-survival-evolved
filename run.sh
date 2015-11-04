@@ -1,10 +1,10 @@
 #!/bin/bash
 
 cd /home/steam
-./arksserver start
-echo "started server"
+./arkserver start
+echo "Started ARK: Survival Evolved Dedicated Server"
 sleep 10
-echo "retreiving details"
+echo "...retreiving details..."
 sleep 3
 ./arkserver details
 sleep 300
