@@ -23,13 +23,14 @@ RUN chmod 755 /run.sh
 # Override the default start.sh
 COPY ./start.sh /start.sh
 RUN chmod 755 /start.sh
-RUN gpasswd -a steam tty
 
-# setup steam user / default configs
-USER steam
-RUN echo 'new-session' >> ~/.tmux.conf
 WORKDIR /home/steam
 ADD http://gameservermanagers.com/dl/arkserver ./arkserver
-RUN chmod +x arkserver
+RUN chmod +x arkserver;
+
+# setup steam user/group and default tmux session
+RUN gpasswd -a steam tty
+USER steam
+RUN echo 'new-session' >> ~/.tmux.conf
 
 ENTRYPOINT ["/start.sh"]
