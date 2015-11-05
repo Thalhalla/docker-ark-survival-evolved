@@ -19,6 +19,11 @@ RUN echo 'new-session' >> ~/.tmux.conf
 RUN apt-get update \
     && apt-get -yq install vim less
 
+# import ARK server
+WORKDIR /home/steam
+ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
+RUN chmod 755 ShooterGameServer
+
 # import custom ARK config
 #COPY ./serverconfig_template.xml /home/steam/serverconfig_template.xml
 COPY ./run.sh /run.sh
@@ -32,9 +37,5 @@ RUN chmod 755 /start.sh
 RUN gpasswd -a steam tty
 USER steam
 RUN echo 'new-session' >> ~/.tmux.conf
-
-WORKDIR /home/steam
-ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
-RUN chmod 755 ShooterGameServer;
 
 ENTRYPOINT ["/start.sh"]
