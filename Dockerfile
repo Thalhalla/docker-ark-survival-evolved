@@ -13,7 +13,7 @@ ENV STEAM_PASSWORD ' '
 ENV STEAM_GUARD_CODE ' '
 
 # setup root tmux config
-RUN echo 'new-session' >> ~/.tmux.conf
+RUN echo 'new-session' >> ~/.tmux.conf	
 
 # add some tools for testing
 RUN apt-get update \
@@ -28,14 +28,13 @@ RUN chmod 755 /run.sh
 COPY ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
-WORKDIR /home/steam
-ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
-RUN chmod 755 ShooterGameServer \
-    && chown steam. ShooterGameServer
-
 # setup steam user/group and default tmux session
 RUN gpasswd -a steam tty
 USER steam
 RUN echo 'new-session' >> ~/.tmux.conf
+
+WORKDIR /home/steam
+ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
+RUN chmod 755 ShooterGameServer;
 
 ENTRYPOINT ["/start.sh"]
