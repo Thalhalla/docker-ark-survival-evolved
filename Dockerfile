@@ -29,7 +29,7 @@ RUN gpasswd -a steam tty
 USER steam
 RUN echo 'new-session' >> ~/.tmux.conf
 WORKDIR /home/steam
-ADD http://gameservermanagers.com/dl/arkserver ./
+ADD http://gameservermanagers.com/dl/arkserver ./arkserver
 RUN chmod +x arkserver
 
 ENTRYPOINT ["/start.sh"]
