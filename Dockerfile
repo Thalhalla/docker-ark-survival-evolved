@@ -26,7 +26,7 @@ RUN chmod 755 /start.sh
 
 WORKDIR /home/steam
 ADD http://gameservermanagers.com/dl/arkserver ./arkserver
-RUN chmod +x arkserver;
+RUN chmod 755 arkserver; chown steam. arkserver;
 
 # setup steam user/group and default tmux session
 RUN gpasswd -a steam tty
