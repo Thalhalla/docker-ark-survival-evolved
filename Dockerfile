@@ -16,7 +16,8 @@ ENV STEAM_GUARD_CODE ' '
 RUN echo 'new-session' >> ~/.tmux.conf
 
 # add some tools for testing
-RUN apt-get update; apt-get -yq install vim less
+RUN apt-get update \
+    && apt-get -yq install vim less
 
 # import custom ARK config
 #COPY ./serverconfig_template.xml /home/steam/serverconfig_template.xml
@@ -29,7 +30,8 @@ RUN chmod 755 /start.sh
 
 WORKDIR /home/steam
 ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
-RUN chmod 755 ShooterGameServer; chown steam. ShooterGameServer;
+RUN chmod 755 ShooterGameServer \
+    && chown steam. ShooterGameServer
 
 # setup steam user/group and default tmux session
 RUN gpasswd -a steam tty

@@ -29,7 +29,7 @@ builddocker:
 	/usr/bin/time -v docker build -t thalhalla/docker-arkserver .
 
 beep:
-	@echo "...done!"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> done!"
 
 kill:
 	@docker kill `cat cid`
