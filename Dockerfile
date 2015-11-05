@@ -28,8 +28,8 @@ COPY ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
 WORKDIR /home/steam
-ADD http://gameservermanagers.com/dl/arkserver ./arkserver
-RUN chmod 755 arkserver; chown steam. arkserver;
+ADD http://gameservermanagers.com/dl/arkserver ./ShooterGame
+RUN chmod 755 ShooterGame; chown steam. ShooterGame;
 
 # setup steam user/group and default tmux session
 RUN gpasswd -a steam tty
