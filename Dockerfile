@@ -1,5 +1,5 @@
 FROM thalhalla/steamer
-MAINTAINER James S. Moore <james 'at' webtechhq com>
+MAINTAINER James S. Moore <james 'at' ohmydocker com>
 
 USER root
 
@@ -12,8 +12,11 @@ ENV STEAM_USERNAME anonymous
 ENV STEAM_PASSWORD ' '
 ENV STEAM_GUARD_CODE ' '
 
-# and override this file with the command to start your server
+# setup root tmux config
 RUN echo 'new-session' >> ~/.tmux.conf
+
+# add some tools for testing
+RUN apt-get update; apt-get -yq install vim less
 
 # import custom ARK config
 #COPY ./serverconfig_template.xml /home/steam/serverconfig_template.xml
