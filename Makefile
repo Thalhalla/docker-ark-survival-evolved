@@ -54,7 +54,10 @@ rm: kill rm-image
 clean: cleanfiles rm
 
 enter:
-	docker exec -i -t `cat cid` /bin/bash
+	docker exec -i -t `cat cid` sh -c "export TERM=xterm && bash"
+
+logs:
+	docker logs -f `cat cid`
 
 steam_username:
 	@while [ -z "$$STEAM_USERNAME" ]; do \
