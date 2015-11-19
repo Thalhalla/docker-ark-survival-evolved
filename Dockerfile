@@ -21,8 +21,8 @@ RUN apt-get update \
 
 # import ARK server
 WORKDIR /home/steam
-ADD http://gameservermanagers.com/dl/arkserver ./ShooterGameServer
-RUN chmod 755 ShooterGameServer
+ADD http://gameservermanagers.com/dl/arkserver ./arkserver
+RUN chmod 755 ./arkserver
 
 # import custom ARK config
 #COPY ./serverconfig_template.xml /home/steam/serverconfig_template.xml
